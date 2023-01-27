@@ -36,3 +36,5 @@ Route::resource('alumnos', AlumnoController::class);
 Route::get('alumnos', [AlumnoController::class, 'index'])->name('alumnos.index');
 
 Route::get('alumnos/create', [AlumnoController::class, 'create'])->name('alumnos.create');
+
+Route::post('alumnos', [AlumnoController::class, 'store'])->name('alumnos.store');

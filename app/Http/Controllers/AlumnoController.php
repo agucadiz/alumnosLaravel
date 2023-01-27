@@ -38,7 +38,13 @@ class AlumnoController extends Controller
      */
     public function store(StoreAlumnoRequest $request)
     {
-        //
+        $alumno = new Alumno();
+
+        $alumno->nombre = $request->nombre;
+
+        $alumno->save();
+
+        return redirect()->route('alumnos.index', $alumno);
     }
 
     /**
