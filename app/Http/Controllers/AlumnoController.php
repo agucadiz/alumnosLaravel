@@ -66,7 +66,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view('alumnos.edit', compact('alumno'));
     }
 
     /**
@@ -78,7 +78,11 @@ class AlumnoController extends Controller
      */
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
-        //
+        $alumno->nombre = $request->nombre;
+
+        $alumno->save();
+
+        return redirect()->route('alumnos.index', $alumno);
     }
 
     /**

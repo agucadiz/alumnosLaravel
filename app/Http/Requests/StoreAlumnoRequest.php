@@ -24,7 +24,7 @@ class StoreAlumnoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|min:5\max:20'
+            'nombre' => 'required|min:1\max:50'
         ];
     }
 }
