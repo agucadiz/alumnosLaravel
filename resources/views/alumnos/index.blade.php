@@ -29,11 +29,25 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <div class="text-sm font-medium text-gray-900">
-                                        <a href="{{ route('alumnos.criterios', $alumno) }}">
-                                            {{ round($alumno->notas_avg_nota, 2) }}
-                                        </a>
-                                    </div>
+                                    @if ($alumno->notas->isNotEmpty())
+                                        @if ($alumno->notas_avg_nota > 4)
+                                            <div class="text-sm font-medium text-green-700">
+                                                <a href="{{ route('alumnos.criterios', $alumno) }}">
+                                                    {{ round($alumno->notas_avg_nota, 2) }}
+                                                </a>
+                                            </div>
+                                        @else
+                                            <div class="text-sm font-medium text-red-700">
+                                                <a href="{{ route('alumnos.criterios', $alumno) }}">
+                                                    {{ round($alumno->notas_avg_nota, 2) }}
+                                                </a>
+                                            </div>
+                                        @endif
+                                    @else
+                                        <div class="text-sm font-medium text-gray-900">
+                                            No Evaluado
+                                        </div>
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 inline-flex">
                                     <form action="{{ route('alumnos.edit', $alumno) }}" method="GET">
