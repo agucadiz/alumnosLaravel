@@ -42,6 +42,8 @@ Route::get('alumnos/create', [AlumnoController::class, 'create'])->name('alumnos
 
 Route::post('alumnos', [AlumnoController::class, 'store'])->name('alumnos.store');
 
+Route::get('alumnos/{alumno}', [AlumnoController::class, 'show'])->name('alumnos.criterios');
+
 Route::get('alumnos/{alumno}/edit', [AlumnoController::class, 'edit'])->name('alumnos.edit');
 
 Route::put('alumnos/{alumno}', [AlumnoController::class, 'update'])->name('alumnos.update');

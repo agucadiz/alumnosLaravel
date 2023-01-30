@@ -21,7 +21,7 @@
                             <tr>
                                 <td class="px-6 py-4">
                                     <div class="text-sm font-medium text-gray-900">
-                                        <a href="{{ route('alumnos.show', $alumno) }}">
+                                        <a href="{{ route('alumnos.criterios', $alumno) }}">
                                             {{ $alumno->nombre }}
                                         </a>
                                     </div>
