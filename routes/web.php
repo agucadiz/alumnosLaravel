@@ -34,18 +34,22 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //CRUD
-Route::resource('alumnos', AlumnoController::class);
 
-Route::get('alumnos', [AlumnoController::class, 'index'])->name('alumnos.index');
+Route::middleware(['auth'])->group(function(){
+    Route::resource('alumnos', AlumnoController::class);
+});
+
+
+/* Route::get('alumnos', [AlumnoController::class, 'index'])->name('alumnos.index');
 
 Route::get('alumnos/create', [AlumnoController::class, 'create'])->name('alumnos.create');
 
 Route::post('alumnos', [AlumnoController::class, 'store'])->name('alumnos.store');
 
-Route::get('alumnos/{alumno}', [AlumnoController::class, 'show'])->name('alumnos.criterios');
+Route::get('alumnos/{alumno}', [AlumnoController::class, 'show'])->name('alumnos.show');
 
 Route::get('alumnos/{alumno}/edit', [AlumnoController::class, 'edit'])->name('alumnos.edit');
 
 Route::put('alumnos/{alumno}', [AlumnoController::class, 'update'])->name('alumnos.update');
 
-Route::delete('alumnos/{alumno}', [AlumnoController::class, 'destroy'])->name('alumnos.destroy');
+Route::delete('alumnos/{alumno}', [AlumnoController::class, 'destroy'])->name('alumnos.destroy'); */
